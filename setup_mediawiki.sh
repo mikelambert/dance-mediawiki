@@ -78,3 +78,10 @@ grep MinervaNeue $LOCAL_SETTINGS_PATH || cat <<'EOF' >> $LOCAL_SETTINGS_PATH
 wfLoadSkin( 'MinervaNeue' );
 $wgMFDefaultSkinClass = 'SkinMinervaNeue';
 EOF
+
+
+sed -i 's/user.s Wiki./Dance Wiki/g' $LOCAL_SETTINGS_PATH
+sed -i 's/wiki.png/deets-head-135.png/g' $LOCAL_SETTINGS_PATH
+# Copy over the file from our directory
+gcloud compute --project "dance-wiki" scp --zone "us-central1-f" /Users/lambert/Projects/dance-mediawiki/deets-head-135.png bitnami@mediawiki-1-vm:/opt/bitnami/apps/mediawiki/htdocs/resources/assets/
+
